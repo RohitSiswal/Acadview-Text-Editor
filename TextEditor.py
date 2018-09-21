@@ -4,7 +4,7 @@ import tkinter.filedialog
 import tkinter.messagebox
 
 root = Tk()
-root.iconbitmap('icons/favicon.ico')
+root.iconbitmap('icons/favicon.png')
 
 PROGRAM_NAME = "TextEditor"
 root.title(PROGRAM_NAME)
@@ -107,7 +107,7 @@ def selectall(event=None):
     return "break"
 
 
-def find_text(event=None):
+def find(event=None):
     search_toplevel = Toplevel(root)
     search_toplevel.title('Find Text')
     search_toplevel.transient(root)
@@ -243,15 +243,15 @@ def show_popup_menu(event):
 
 
 # ICONS for the compound menu
-new_file_icon = PhotoImage(file='icons/new_file.gif')
-open_file_icon = PhotoImage(file='icons/open_file.gif')
-save_file_icon = PhotoImage(file='icons/save.gif')
-cut_icon = PhotoImage(file='icons/cut.gif')
-copy_icon = PhotoImage(file='icons/copy.gif')
-paste_icon = PhotoImage(file='icons/paste.gif')
-undo_icon = PhotoImage(file='icons/undo.gif')
-redo_icon = PhotoImage(file='icons/redo.gif')
-find_icon = PhotoImage(file='icons/find_text.gif')
+new_file_icon = PhotoImage(file='icons/new_file.png')
+open_file_icon = PhotoImage(file='icons/open_file.png')
+save_file_icon = PhotoImage(file='icons/save.png')
+cut_icon = PhotoImage(file='icons/cut.png')
+copy_icon = PhotoImage(file='icons/copy.png')
+paste_icon = PhotoImage(file='icons/paste.png')
+undo_icon = PhotoImage(file='icons/Undo.png')
+redo_icon = PhotoImage(file='icons/redo.png')
+find_icon = PhotoImage(file='icons/find.png')
 
 # MENU CODES GOES HERE
 menu_bar = Menu(root)  # menu begins
@@ -279,7 +279,7 @@ edit_menu.add_command(label='Paste', accelerator='Ctrl+V', compound='left', imag
                       command=paste)
 edit_menu.add_separator()
 edit_menu.add_command(label='Find', accelerator='Ctrl+F', compound='left', image=find_icon, underline=0,
-                      command=find_text)
+                      command=find)
 edit_menu.add_separator()
 edit_menu.add_command(label='Select All', accelerator='Ctrl+A', compound='left', underline=0, command=selectall)
 menu_bar.add_cascade(label='Edit', menu=edit_menu)
@@ -330,9 +330,9 @@ shortcut_bar = Frame(root, height=25)
 shortcut_bar.pack(expand='no', fill='x')
 
 # adding shortcut icons
-icons = ('new_file', 'open_file', 'save', 'cut', 'copy', 'paste', 'undo', 'redo', 'find_text')
+icons = ('new_file', 'open_file', 'save', 'cut', 'copy', 'paste', 'undo', 'redo', 'find')
 for i, icon in enumerate(icons):
-    tool_bar_icon = PhotoImage(file='icons/{}.gif'.format(icon)).zoom(2, 2)
+    tool_bar_icon = PhotoImage(file='icons/{}.png'.format(icon)).zoom(2, 2)
     cmd = eval(icon)
     tool_bar = Button(shortcut_bar, image=tool_bar_icon, height=35, width=35, command=cmd)
     tool_bar.image = tool_bar_icon
@@ -377,8 +377,8 @@ content_text.bind('<Control-Y>', redo)
 content_text.bind('<Control-y>', redo)
 content_text.bind('<Control-A>', selectall)
 content_text.bind('<Control-a>', selectall)
-content_text.bind('<Control-F>', find_text)
-content_text.bind('<Control-f>', find_text)
+content_text.bind('<Control-F>', find)
+content_text.bind('<Control-f>', find)
 
 content_text.bind('<KeyPress-F1>', display_help)
 

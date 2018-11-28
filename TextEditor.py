@@ -285,6 +285,14 @@ edit_menu.add_command(label='Select All', accelerator='Ctrl+A', compound='left',
 menu_bar.add_cascade(label='Edit', menu=edit_menu)
 # end of Edit Menu
 
+# start of Format Menu
+Format_menu = Menu(menu_bar, tearoff=0)
+menu_bar.add_cascade(label='Format', menu=Format_menu)
+Word_Warp = IntVar()
+Word_Warp.set(1)
+Format_menu.add_checkbutton(label="Word Warp", variable=Word_Warp)
+Format_menu.add_command(label='Font...', underline=0, command=display_help)
+# end of Format Menu
 
 view_menu = Menu(menu_bar, tearoff=0)
 show_line_number = IntVar()
